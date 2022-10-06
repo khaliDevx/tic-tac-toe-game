@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Tic-Tac-Toe
+        </title>
+        <link rel="icon" href="tic-tac-toe-icon.png" type="image/x-icon">
+        <link rel="stylesheet" href="tic-tac-toe-style.css" type="text/css">
+        <script src="jquery-3.5.1.min.js"></script>
+    </head>
+    <body>
+        <div class="container">
+            <div class="header">
+                <div class="vs">Play against a friend</div>
+                <div class="players">
+                    <div class="score active" id="playerX" >
+                        x
+                        <span id='countX'>0</span>
+                    </div>
+                    <div class="score" id="playerO" >
+                        o
+                        <span id='countO'>0</span>
+                    </div>
+                </div>
+                <div id='playTurn'>
+                    <span id="x_o">X</span><div id="turn"></span> Turn</div>
+                </div>
+            </div>
+            
+            <div class="background">
+
+                <div class="tic-tac-toe-box">
+                    <div>
+                        <div class="boxes" data-index="0" id="box1" >
+                            <div class='temp a'></div>
+                            <div class='temp b'></div>
+                        </div>
+                        <div class="boxes" data-index="1" id="box2" >
+                            <div class='temp a'></div>
+                            <div class='temp b'></div>
+                        </div>
+                        <div class="boxes" data-index="2" id="box3" >
+                            <div class='temp a'></div>
+                            <div class='temp b'></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="boxes" data-index="3" id="box4" >
+                            <div class='temp a'></div>
+                            <div class='temp b'></div>
+                        </div>
+                        <div class="boxes" data-index="4" id="box5" >
+                            <div class='temp a'></div>
+                            <div class='temp b'></div>
+                            <div class='winnerX'>
+                                <div id="rotateX1"></div>
+                                <div id="rotateX2"></div>
+                            </div>
+                            <div class="winnerO">
+                                <div id='rotateO1'></div>
+                                <div id='rotateO2'></div>
+                            </div>
+                            <div class="winner"></div>
+                            <div class="xEqualo">
+                                <div class="XeO">
+                                    <div id="xE">×</div>
+                                    <div id="oE">o</div>
+                                </div>
+                                <div id="e" class="equal"></div>
+                            </div>
+                        </div>
+                        <div class="boxes" data-index="5" id="box6" >
+                            <div class='temp a'></div>
+                            <div class='temp b'></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="boxes" data-index="6" id="box7" >
+                            <div class='temp a'></div>
+                            <div class='temp b'></div>
+                        </div>
+                        <div class="boxes" data-index="7" id="box8" >
+                            <div class='temp a'></div>
+                            <div class='temp b'></div>
+                        </div>
+                        <div class="boxes" data-index="8" id="box9" >
+                            <div class='temp a'></div>
+                            <div class='temp b'></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="retry">
+                Restart the game
+            </div>
+        </div>
+
+        <script src="tic-tac-toe-script.js"></script>
+    </body>
+</html>

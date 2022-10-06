@@ -1,0 +1,351 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap');
+*{
+    box-sizing: border-box;
+}
+body{
+    margin: 0;
+    padding-top: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+.container{
+    width: 500px;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: beige;
+    border: 0.3px solid #444;
+    border-radius: 8px;
+    box-shadow: 0px 0px 4px;
+
+}
+.vs{
+    margin-left: 20px;
+    color: #777;
+    font-size: 15px;
+    font-weight: 900;
+    font-family: 'Roboto', sans-serif;
+}
+.score{
+    font-family: 'Roboto', sans-serif;
+    padding-left: 12px;
+    padding-right: 10px;
+    padding-bottom: 5px;
+    text-align: left;
+    width: 180px;
+    height: 40px;
+    font-size: 30px;
+    border-radius: 7px;
+    border-bottom: 1px solid #777;
+    box-shadow: 0px 0px 2px ;
+    color: #444;
+}
+.active{
+    border-bottom: 3px solid #14bdac;
+    box-shadow: 0px 1px 4px ;
+}
+.score span{
+    font-size: 27px;
+    float: right;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.header{
+    width: 100%;
+    align-content: space-between;
+    height: 135px;
+}
+.players{
+    margin-top: 30px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+#playerX{
+    margin-right: 10px;
+    height: 35px;
+}
+#playerO{
+    margin-left: 10px;
+    height: 35px;
+}
+#playTurn{ 
+    margin-top: 10px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: row nowrap;
+    padding-top: 3px;
+    font-size: 15px;
+    font-family: 'Roboto', sans-serif;
+
+}
+#turn{
+    text-align: center;
+    color: #666;
+    font-size: 15px;
+    font-weight: 900;
+}
+#x_o{
+    text-align: center;
+    color: #111;
+    margin-right: 4px;
+    font-weight: 900;
+}
+.retry{
+    font-family: 'Roboto', sans-serif;
+    margin-top: 11px;
+    color: #03a393;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+}
+.background{
+    display: flex;
+    justify-content: center;
+    width: 500px;
+    height: 220px;
+    background-color: #14bdac;
+}
+.tic-tac-toe-box{
+    display: flex;
+    justify-content: center;
+    flex-flow: wrap row;
+    width: 180px;
+    padding-top: 18px;
+}
+
+.boxes{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 3px solid rgba(85, 85, 85, 0.575);
+    width: 60px;
+    height: 60px;
+    text-align: center;
+    font-size: 55px;
+    padding-top: 5px;
+    padding-right: 20px;
+    font-family: 'Roboto', sans-serif;
+    transition: 1s;
+}
+.boxOut{
+    width: 0;
+    height: 0;
+    transition: 0.7s;
+}
+
+/* press X in the box */
+.boxes .x{
+    background-color: #444;
+    width: 48px;
+    height: 5.5px;
+    margin-left: 10px;
+    border-radius: 40%;
+    transition: 0.3s;
+}
+.boxes .x1{
+    position: absolute;
+    transform: rotate(45deg);
+}
+.boxes .x2{
+    position: absolute;
+    transform: rotate(135deg);
+}
+/* 
+-----------------------------------
+ */
+
+ /* Press O on The Box */
+.boxes .o1{
+    position: absolute;
+    background-color: #fff;
+    border-radius: 50%;
+    height: 38px;
+    width: 38px;
+    margin-left: 10px;
+    margin-top: -3px;
+    transition: 0.3s;
+}
+.boxes .o2{
+    position: absolute;
+    background-color: #14bdac;
+    border-radius: 50%;
+    height: 27px;
+    width: 27px;
+    margin-left:10px;
+    margin-top: -2px;
+    transition: 0.3s;
+}
+/* ----------------------- */
+
+
+/* Display the Winner word -------------- */
+.winner{
+    z-index: 2;
+    margin-left: 15px;
+    margin-top: 240px;
+    position: absolute;
+    color: #444;
+    font-size: 35px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 900;
+    transition: 0.7s;
+}
+.resultFadeout{
+    visibility: hidden;
+    width: 0;
+    height: 0;
+    transition: 0.5s;
+    margin-left: 50px;
+}
+/* ----------------------- */
+
+/* Display X Winner -------*/
+
+.winnerX{
+    visibility: hidden;
+    width: 180px;
+    height: 150px;
+    z-index: 2;
+    position: absolute;
+    padding-left: 40px;
+    padding-top: 130px;
+    position: absolute;
+   
+}
+.winnerX1{
+    border-radius: 40%;
+    width: 110px;
+    height: 13px;
+    background-color: #444;
+    position: absolute;
+    transform: rotate(495deg);
+    transition: 1s;
+}
+.winnerX2{
+    border-radius: 40%;
+    width: 110px;
+    height: 13px;
+    background-color: #444;
+    position: absolute;
+    transform: rotate(405deg);
+    transition: 1s;
+}
+/* ---------------------------------- */
+
+/* Display O Winner */
+.winnerO{
+    visibility: hidden;
+    z-index: 2;
+    position: absolute;
+    width: 180px;
+    height: 150px;
+    margin-left: 45px;
+    border-radius: 10%;
+    padding-top: 90px;
+    margin-bottom: 100px;
+    margin-top: 70px;
+}
+.winnerO1{
+    position: absolute;
+    background-color: #fff;
+    border-radius: 50%;
+    height: 95px;
+    width: 95px;
+    margin-left: 30px;
+    margin-top: 10px;
+    transition: 0.5s;
+
+}
+.winnerO2{
+    position: absolute;
+    background-color: #14bdac;
+    border-radius: 50%;
+    height: 70px;
+    width: 70px;
+    margin-left:42px;
+    margin-top: 20px;
+    transition: 0.5s;
+}
+/* ------------------------- */
+
+/* Display Equal--------- */
+
+.xEqualo{
+    visibility: hidden;
+    font-family: 'Roboto', sans-serif;
+    transition: 1s;
+    z-index: 2;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    padding-top: 210px;
+    padding-left: 25px;
+}
+.equal{
+    position: absolute;
+    color: #444;
+    font-weight: bolder;
+    font-size: 40px;
+    z-index: 1;
+
+}
+.XeO{
+    z-index: 2;
+    margin-top: -150px;
+    position: absolute;
+    display: flex;
+    flex-flow: row nowrap;
+    width: 170px;
+    margin-bottom: -80px;
+}
+.oEqual{
+    color: #fff;
+    margin: 3px;
+    height: 100px;
+    width: 80px;
+    font-size: 150px;
+} 
+.xEqual{
+    color: #444;
+    margin: 3px;
+    height: 100px;
+    width: 80px;
+    font-size: 170px;
+}
+/* ----------------------------- */
+
+#box1{
+    border-top: none;
+    border-left: none;
+}
+#box2{
+    border-left: none;
+}
+#box3{
+    border-left: none;
+    border-bottom: none;
+}
+#box4{
+    border-top: none;
+}
+#box6{
+    border-bottom: none;
+}
+#box7{
+    border-top: none;
+    border-right: none;
+}
+#box8{
+    border-right: none;
+}
+#box9{
+    border-right: none;
+    border-bottom: none;
+}
